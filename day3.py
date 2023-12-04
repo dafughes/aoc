@@ -37,11 +37,11 @@ task2 = 0
 for symbol in symbols:
     if symbols[symbol] == '*':
         # Gear must be connected to EXACTLY two numbers
-        num_connected = list(filter(lambda x: symbol in x[1], numbers))
+        connected = list(filter(lambda x: symbol in x[1], numbers))
         
-        if len(num_connected) == 2:
-            first = num_connected[0][0]
-            second = num_connected[1][0]
+        if len(connected) == 2:
+            first = connected[0][0]
+            second = connected[1][0]
 
             task2 += first * second
 
