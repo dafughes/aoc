@@ -9,7 +9,7 @@ for line in input.split('\n'):
     values = re.findall('\d+|red|green|blue', line)
     id = int(values[0])
 
-    # Task 1: Find out which games are possible if bag contains 12/13/14 cubes.max
+    # Task 1: Find out which games are possible if bag contains 12/13/14 cubes
     # Calculate max cubes for each game
     max_cubes_revealed = {'red': 0, 'green': 0, 'blue': 0}
     for i in range(1, len(values), 2):
