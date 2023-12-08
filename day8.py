@@ -25,7 +25,7 @@ task1 = num_steps(instructions, network, 'AAA')
 print(task1)
 
 # Task 2
-# Least common multiple of step count for all starting positions
+# Least common multiple of step counts for all starting positions
 nodes = [node for node in network if node[-1] == 'A']
 steps = [num_steps(instructions, network, node, 2) for node in nodes]
 task2 = 0
