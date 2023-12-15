@@ -19,28 +19,24 @@ for p in (arr.split('\n') for arr in read_input(13).split('\n\n')):
     rows.append(r)
     cols.append(c)
 
-def get_reflection(p):
+def solution(p, task=1):
     for i in range(1, len(p)):
-        if all(a == b for a, b in zip(p[:i][::-1], p[i:])):
+        reflection = zip(p[:i][::-1], p[i:])
+        if task == 1 and all(a == b for a, b in reflection):
+            return i
+        elif task == 2 and sum((a ^ b).bit_count() for a, b in zip(p[:i][::-1], p[i:])) == 1:
             return i
 
     return 0 
 
 task1 = 0
 for r, c in zip(rows, cols):
-    task1 += 100 * get_reflection(r) + get_reflection(c)       
+    task1 += 100 * solution(r) + solution(c)       
     
 print(task1)
 
-def get_smudge(p):
-    for i in range(1, len(p)):
-        if sum((a ^ b).bit_count() for a, b in zip(p[:i][::-1], p[i:])) == 1:
-            return i
-            
-    return 0
-
 task2 = 0
 for r, c in zip(rows, cols):
-    task2 += 100 * get_smudge(r) + get_smudge(c)
+    task2 += 100 * solution(r, 2) + solution(c, 2)
 
 print(task2)
