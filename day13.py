@@ -29,14 +29,8 @@ def solution(p, task=1):
 
     return 0 
 
-task1 = 0
-for r, c in zip(rows, cols):
-    task1 += 100 * solution(r) + solution(c)       
+task1 = sum(100 * solution(r) + solution(c) for r, c in zip(rows, cols))
+task2 = sum(100 * solution(r, 2) + solution(c, 2) for r, c in zip(rows, cols))
     
 print(task1)
-
-task2 = 0
-for r, c in zip(rows, cols):
-    task2 += 100 * solution(r, 2) + solution(c, 2)
-
 print(task2)
